@@ -11,6 +11,8 @@ class Robot(object):
         self.right = ev3.LargeMotor('outC')
         self.weapon = ev3.MediumMotor('outA')
         self.ir = ev3.InfraredSensor()
+        for light in (ev3.Leds.LEFT, ev3.Leds.RIGHT):
+            ev3.Leds.set_color(ev3.light, ev3.Leds.RED)
 
     def find_way(self):
         self.left.run_forever(duty_cycle_sp=35)
